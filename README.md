@@ -1,4 +1,4 @@
-Technologies and usage in projects and exercises:
+#Technologies and usage in projects and exercises:
 
 Vagrant CentOS/Ubuntu VMs with installing: Tomcat,Rabbitmq,Memcache,Mariadb,Nginx
 
