@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../virtualbox/vprofile-project"
+		},
+		{
+			"path": "../../vagrant-vms"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}

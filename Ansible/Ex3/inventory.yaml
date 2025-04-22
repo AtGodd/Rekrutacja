@@ -1,0 +1,24 @@
+all:
+  hosts:
+    web01:
+      ansible_host: 172.31.82.247
+    web02:
+      ansible_host: 172.31.83.62
+    db01:
+      ansible_host: 172.31.95.201
+
+  children:
+    webservers:
+      hosts:
+        web01:
+        web02:
+    dbservers:
+      hosts:
+        db01:
+    dc_oregon:
+      children:
+        webservers:
+        dbservers:
+      vars:
+        ansible_user: fedora
+        ansible_ssh_private_key_file: client-key.pem

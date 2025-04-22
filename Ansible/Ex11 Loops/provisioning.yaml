@@ -1,0 +1,51 @@
+---
+- name: Provisioning servers
+  hosts: all
+  become: yes
+  tasks:
+
+    #- name: Install ntp agent on centos
+      #dnf:
+        #name: chrony
+          #state: present
+          #use_backend: dnf5
+          #      when: ansible_distribution == "Fedora" or ansible_distribution == "CentOS"
+
+    - name: Install ntp agent on centos
+      yum:
+        name: "{{item}}"
+        state: present
+      when: ansible_distribution == "Fedora"
+      loop:
+        - chrony
+        - wget
+        - git
+        - zip
+        - unzip
+
+    - name: Install ntp agent on ubuntu
+      apt:
+        name: "{{item}}"
+        state: present
+        update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+      loop:
+        - chrony
+        - wget
+        - git
+        - zip
+        - unzip
+
+    - name: Start service on centos
+      service:
+        name: chronyd
+        state: started
+        enabled: yes
+      when: ansible_distribution == "Fedora" or ansible_distribution == "CentOS"
+
+    - name: Start service on ubuntu
+      service:
+        name: chrony
+        state: started
+        enabled: yes
+      when: ansible_distribution == "Ubuntu"

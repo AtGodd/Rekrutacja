@@ -1,0 +1,5 @@
+CLI
+Playbook
+host_vars
+group_vars
+all_vars

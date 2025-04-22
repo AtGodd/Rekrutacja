@@ -1,0 +1,9 @@
+Pod - smallest object in k8s, container is inside pod
+Service - static endpoint,load balancer
+Replica set - cluster of pods
+Deployment - cluster of pods + new imaage tags
+Config Map - store variable and config
+Secret - variables and information are "hashed"
+Volumes - equal to EBS volumes, diffrent storages for data
+
+#k8s documentaion is grail
